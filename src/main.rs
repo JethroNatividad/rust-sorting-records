@@ -8,6 +8,10 @@
 // Jacquelyn Jackson DBA
 // Sally Weber Web Developer 2015-12-18
 
+// Inputs: the dataset, vector of hashmap
+// Process: combine lname + fname to name, sort by name.
+// Output: sorted data by name. fields: name, position, separation date
+
 fn main() {
     println!("Hello, world!");
 }
