@@ -1,3 +1,4 @@
+use cli_table::{format::Justify, print_stdout, Cell, CellStruct, Style, Table};
 use std::collections::HashMap;
 
 // Create a program that sorts this dataset by last name and print by tabular format.
@@ -61,9 +62,9 @@ fn main() {
         a_first.cmp(b_first)
     });
 
-    println!("Name                          | Position                          | Separation Date        ");
-    println!("------------------------------|-----------------------------------|------------------------");
-    for map in sorted {
-        println!("{:#?}", map);
+    let mut table_data: Vec<Vec<CellStruct>> = vec![];
+    for hash_map in sorted {
+        let cell: Vec<CellStruct> = hash_map.into_iter().map(|(_, v)| v.cell()).collect();
+        table_data.push(cell);
     }
 }
