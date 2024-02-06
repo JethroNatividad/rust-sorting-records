@@ -55,11 +55,11 @@ fn main() {
     ];
 
     let mut sorted: Vec<HashMap<&str, &str>> = dataset.clone();
-    sorted.sort_by(|a, b| a.get("first_name").cmp(&b.get("first_name")));
+    sorted.sort_by(|a, b| {
+        (a.get("first_name").unwrap_or(&"")).cmp(&b.get("first_name").unwrap_or(&""))
+    });
 
     for map in sorted {
         println!("{:#?}", map);
     }
-
-    println!("Hello, world!");
 }
