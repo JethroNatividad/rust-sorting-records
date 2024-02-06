@@ -15,11 +15,11 @@ use std::collections::HashMap;
 // Output: sorted data by name. fields: name, position, separation date
 
 fn main() {
-    let dataset: Vec<HashMap<String, String>> = vec![HashMap::from([
-        ("first_name".to_string(), "John".to_string()),
-        ("last_name".to_string(), "Johnson".to_string()),
-        ("position".to_string(), "Manager".to_string()),
-        ("separation_date".to_string(), "2016-12-31".to_string()),
+    let dataset: Vec<HashMap<&str, &str>> = vec![HashMap::from([
+        ("first_name", "John"),
+        ("last_name", "Johnson"),
+        ("position", "Manager"),
+        ("separation_date", "2016-12-31"),
     ])];
     println!("Hello, world!");
 }
