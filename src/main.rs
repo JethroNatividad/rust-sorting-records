@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 // Create a program that sorts this dataset by last name and print by tabular format.
 // Dataset:
 // First Name Last Name Position Separation date
@@ -13,5 +15,11 @@
 // Output: sorted data by name. fields: name, position, separation date
 
 fn main() {
+    let dataset: Vec<HashMap<String, String>> = vec![HashMap::from([
+        ("first_name".to_string(), "John".to_string()),
+        ("last_name".to_string(), "Johnson".to_string()),
+        ("position".to_string(), "Manager".to_string()),
+        ("separation_date".to_string(), "2016-12-31".to_string()),
+    ])];
     println!("Hello, world!");
 }
