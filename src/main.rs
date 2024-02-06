@@ -63,16 +63,16 @@ fn main() {
     });
 
     let mut table_data: Vec<Vec<CellStruct>> = vec![];
-    let get_last_data: Option<&HashMap<&str, &str>> = sorted.get(sorted.len());
+    let get_last_data: Option<&HashMap<&str, &str>> = sorted.get(sorted.len() - 1);
     if let Some(last_data) = get_last_data {
         let titles: Vec<&str> = last_data.keys().into_iter().map(|k| *k).collect();
 
-        
         for hash_map in sorted {
             let cell: Vec<CellStruct> = hash_map.into_iter().map(|(_, v)| v.cell()).collect();
             table_data.push(cell);
         }
-        
-        let table_display = table_data.table().title(titles)
+
+        let table_display = table_data.table().title(titles).display().unwrap();
+        println!("{}", table_display);
     }
 }
