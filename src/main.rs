@@ -61,6 +61,8 @@ fn main() {
         a_first.cmp(b_first)
     });
 
+    println!("Name                          | Position                          | Separation Date        ");
+    println!("------------------------------|-----------------------------------|------------------------");
     for map in sorted {
         println!("{:#?}", map);
     }
