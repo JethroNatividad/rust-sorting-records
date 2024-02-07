@@ -15,10 +15,16 @@ use std::collections::HashMap;
 // Process: combine lname + fname to name, sort by name.
 // Output: sorted data by name. fields: name, position, separation date
 
+#[derive(Table)]
 struct Employee {
+    #[table(title = "First Name")]
     first_name: String,
+    #[table(title = "Last Name")]
     last_name: String,
-    position: String
+    #[table(title = "Position")]
+    position: String,
+    #[table(title = "Separation Date")]
+    separation_date: String,
 }
 
 fn main() {
