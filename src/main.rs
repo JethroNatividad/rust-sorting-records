@@ -15,6 +15,12 @@ use std::collections::HashMap;
 // Process: combine lname + fname to name, sort by name.
 // Output: sorted data by name. fields: name, position, separation date
 
+struct Employee {
+    first_name: String,
+    last_name: String,
+    position: String
+}
+
 fn main() {
     let dataset: Vec<HashMap<&str, &str>> = vec![
         HashMap::from([
