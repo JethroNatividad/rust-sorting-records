@@ -1,4 +1,4 @@
-use cli_table::{format::Justify, print_stdout, Cell, CellStruct, Style, Table};
+use cli_table::{format::Justify, print_stdout, Cell, CellStruct, Style, Table, WithTitle};
 use std::collections::HashMap;
 
 // Create a program that sorts this dataset by last name and print by tabular format.
@@ -74,17 +74,15 @@ fn main() {
         a_first.cmp(b_first)
     });
 
-    let mut table_data: Vec<Vec<CellStruct>> = vec![];
-    let get_last_data: Option<&HashMap<&str, &str>> = sorted.get(sorted.len() - 1);
-    if let Some(last_data) = get_last_data {
-        let titles: Vec<&str> = last_data.keys().into_iter().map(|k| *k).collect();
+    let employees_table: Vec<Employee> = sorted
+        .into_iter()
+        .map(|mut employee| Employee {
+            first_name: employee.remove("first_name").unwrap().to_string(),
+            last_name: employee.remove("last_name").unwrap().to_string(),
+            position: employee.remove("position").unwrap().to_string(),
+            separation_date: employee.remove("separation_date").unwrap().to_string(),
+        })
+        .collect();
 
-        for hash_map in sorted {
-            let cell: Vec<CellStruct> = hash_map.into_iter().map(|(_, v)| v.cell()).collect();
-            table_data.push(cell);
-        }
-
-        let table_display = table_data.table().title(titles).display().unwrap();
-        println!("{}", table_display);
-    }
+    assert!(print_stdout(employees_table.with_title()).is_ok());
 }
