@@ -1,4 +1,4 @@
-use cli_table::{format::Justify, print_stdout, Cell, CellStruct, Style, Table, WithTitle};
+use cli_table::{print_stdout, Table, WithTitle};
 use std::collections::HashMap;
 
 // Create a program that sorts this dataset by last name and print by tabular format.
